@@ -1,0 +1,35 @@
+//Rotate List.
+
+(defun rotate-left(list1)
+   (append (cdr list1) (cons (car list1) nil)))
+
+
+(defun rotate-right(list2)
+   (append (list(first(reverse list2))) (reverse(rest(reverse list2)))))
+
+
+(defun rotate-n(List Num)
+   (if (not (and (listp List) (numberp Num))) "this is illegal input"
+   (cond ((= Num 0) L)                                                               
+          ((> Num 0) (rotate-n (rotate-left List) (- Num 1)))                         
+         ((< Num 0) (rotate-n (rotate-right List) (+ Num 1))))))
+
+//Tail Rcursion Factorial
+(defun TailFactorial(n res)
+   (if (= n 0)
+     res
+    (defun TailFactorial (- n 1) (* res n))
+   )
+)
+
+(defun Factotail(n)
+ (TailFactorial n 1)
+) 
+
+//Delete a number 
+
+(defun delete1 (List Num)
+   (if (not (listp List)) "this is illegal input"
+    (cond  ((null List) List)
+           ((equal (first List) Num) (rest List))   
+           (T (cons (first List) (delete1 (rest List) Num))))))    
